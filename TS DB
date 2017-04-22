@@ -1,0 +1,44 @@
+CREATE TABLE user (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+uid VARCHAR(30) NOT NULL,
+password VARCHAR(30) NOT NULL,
+roleId tinyint NOT NULL,
+memo VARCHAR(20),
+createtime Datetime
+)
+
+CREATE TABLE permission (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+roleId tinyint NOT NULL,
+ticketid tinyint NOT NULL,
+permission tinyint NOT NULL,
+memo VARCHAR(20)
+)
+
+
+CREATE TABLE ticket (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(20),
+description VARCHAR(50)
+)
+
+CREATE TABLE Role (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+rolename VARCHAR(20),
+memo VARCHAR(50)
+)
+
+CREATE TABLE TicketList (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ticketid tinyint NOT NULL,
+title VARCHAR(20),
+description Text,
+summary Text,
+severity VARCHAR(20),
+priority VARCHAR(20),
+status VARCHAR(20),
+createtime Datetime,
+createUserId VARCHAR(30) NOT NULL,
+lastmodifyUserId VARCHAR(30) NOT NULL,
+memo VARCHAR(50)
+)
