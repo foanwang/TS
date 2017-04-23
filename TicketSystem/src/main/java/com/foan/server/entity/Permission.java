@@ -14,6 +14,11 @@ import javax.persistence.Table;
 public class Permission implements Serializable{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -22,8 +27,8 @@ public class Permission implements Serializable{
 	@Column(name = "roleid")
 	private int roleId;
 	
-	@Column(name = "ticketid")
-	private int ticketId;
+	@Column(name = "tickettypeid")
+	private int tickettypeId;
 	
 	@Column(name = "permission")
 	private int permission;
@@ -65,11 +70,11 @@ public class Permission implements Serializable{
 		this.memo = memo;
 	}
 
-	public int getTicketId() {
-		return ticketId;
+	public int getTickettypeId() {
+		return tickettypeId;
 	}
 
-	public void setTicketId(int ticketId) {
-		this.ticketId = ticketId;
+	public void setTickettypeId(int tickettypeId) {
+		this.tickettypeId = tickettypeId;
 	}
 }
