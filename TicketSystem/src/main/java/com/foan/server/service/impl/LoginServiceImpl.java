@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.foan.server.entity.User;
 import com.foan.server.repository.UserRepository;
 import com.foan.server.service.LoginService;
+
 @Service
 public class LoginServiceImpl implements LoginService {
 	

@@ -18,18 +18,19 @@ import com.foan.server.service.LoginService;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/login")
 public class LoginContorller {
 	// ---------------------------------------------------------------
 	private static final Logger logger = LoggerFactory.getLogger(LoginContorller.class);
 	
 	@Autowired
 	LoginService loginservice;
-	
-	@RequestMapping(value="/{uid}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public User login(@RequestBody String password,@PathVariable String uid) {
-		logger.info("Start to login.");
+		
+	@RequestMapping(value="/{uid}", method = RequestMethod.GET) 
+	public User login(@PathVariable String uid, @RequestParam String password) {
+//		System.out.println("Start to login uid:"+uid+" password:"+password);
 		User user = loginservice.login(uid, password);
 		return user;
 	}
+	
 }

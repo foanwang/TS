@@ -25,13 +25,13 @@ public class User implements Serializable{
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "roleId")
-	private int roleId;
+	@Column(name = "roleid")
+	private int roleid;
 	
 	@Column(name = "memo")
 	private String memo;
 	 
-	@Column(name = "Datetime")
+	@Column(name = "createtime")
 	private Date Datetime;
 	
 	public User(){}
@@ -60,12 +60,12 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public int getRoleId() {
-		return roleId;
+	public int getRoleid() {
+		return roleid;
 	}
 
 	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+		this.roleid = roleId;
 	}
 
 	public String getMemo() {

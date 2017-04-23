@@ -19,10 +19,10 @@ public class Permission implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "roleId")
+	@Column(name = "roleid")
 	private int roleId;
 	
-	@Column(name = "ticketId")
+	@Column(name = "ticketid")
 	private int ticketId;
 	
 	@Column(name = "permission")
@@ -63,5 +63,13 @@ public class Permission implements Serializable{
 
 	public void setMemo(String memo) {
 		this.memo = memo;
+	}
+
+	public int getTicketId() {
+		return ticketId;
+	}
+
+	public void setTicketId(int ticketId) {
+		this.ticketId = ticketId;
 	}
 }
