@@ -1,11 +1,13 @@
-CREATE TABLE user (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-uid VARCHAR(30) NOT NULL,
-password VARCHAR(30) NOT NULL,
-roleId tinyint NOT NULL,
-memo VARCHAR(20),
-createtime Datetime
-)
+CREATE TABLE `user` (
+  `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
+  `uid` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `roleid` tinyint(4) NOT NULL,
+  `memo` varchar(20) DEFAULT NULL,
+  `createtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY(`uid`),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE permission (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -16,21 +18,24 @@ memo VARCHAR(20)
 )
 
 
-CREATE TABLE ticket (
+CREATE TABLE tickettype(
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(20),
-description VARCHAR(50)
+memo VARCHAR(50),
+UNIQUE KEY(`name`)
 )
 
 CREATE TABLE Role (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-rolename VARCHAR(20),
-memo VARCHAR(50)
+name VARCHAR(20),
+memo VARCHAR(50),
+UNIQUE KEY(`name`)
 )
 
-CREATE TABLE TicketList (
+
+CREATE TABLE Ticket (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-ticketid tinyint NOT NULL,
+type tinyint NOT NULL,
 title VARCHAR(20),
 description Text,
 summary Text,

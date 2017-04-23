@@ -1,5 +1,13 @@
 package com.foan.server.service;
 
-public interface TicketService {
+import java.util.List;
 
+import com.foan.server.entity.Ticket;
+
+public interface TicketService {
+	Ticket addTicket(Ticket ticket);
+	Ticket updateTicket(Ticket ticket);
+	List<Ticket> getTicketListBytype(int type);
+	List<Ticket> getAllTicketList();
+	void deleteRole(Ticket ticket);
 }

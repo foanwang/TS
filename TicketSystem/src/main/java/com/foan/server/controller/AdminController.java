@@ -30,19 +30,16 @@ public class AdminController {
 	
 	@RequestMapping(value="/user", method = RequestMethod.POST) 
 	public User addUser(@RequestBody User user) {
-		System.out.println("create user.....");
 		adminService.addUser(user);
 		return user;
 	}
 	@RequestMapping(value="/user", method = RequestMethod.GET) 
 	public List<User> getUserlest() {
-		System.out.println("get user list");
 		return adminService.getUserList();
 	}
 	
 	@RequestMapping(value="/user/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE) 
 	public User updateUser(@RequestBody User user) {
-		System.out.println("update user");
 		return adminService.updateUser(user); 
 	}
 	
@@ -54,20 +51,17 @@ public class AdminController {
 	
 	@RequestMapping(value="/permission", method = RequestMethod.POST) 
 	public Permission addPermission(@RequestBody Permission permission) {
-		System.out.println("create permission.....");
 		adminService.addPermission(permission);
 		return permission;
 	}
 	
 	@RequestMapping(value="/permission", method = RequestMethod.GET) 
 	public List<Permission> getPermissionlist() {
-		System.out.println("get permission list");
 		return adminService.getPermissionList();
 	}
 	
 	@RequestMapping(value="/permission/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE) 
 	public Permission updatePermission(@RequestBody Permission permission) {
-		System.out.println("update permission");
 		return adminService.updatePermission(permission); 
 	}
 	
@@ -97,20 +91,18 @@ public class AdminController {
 	
 	@RequestMapping(value="/role", method = RequestMethod.DELETE) 
 	public String deleteRole(@RequestBody Role role) {
-		adminService.deleteRole(role);; 
+		adminService.deleteRole(role);
 		return "success";
 	}
 	
 	@RequestMapping(value="/tickettype", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) 
 	public TicketType addTicketType(@RequestBody TicketType tickettype) {
-		//System.out.println("create role.....");
 		adminService.addTickettype(tickettype);
 		return tickettype;
 	}
 	
 	@RequestMapping(value="/tickettype", method = RequestMethod.GET) 
 	public List<TicketType> getTicketTypelist() {
-		//System.out.println("get role list.....");
 		return adminService.getTicketTypeList();
 	}
 	
