@@ -17,6 +17,7 @@ import com.foan.server.entity.Permission;
 import com.foan.server.entity.Role;
 import com.foan.server.entity.TicketType;
 import com.foan.server.entity.User;
+import com.foan.server.response.UpdateUserResponse;
 import com.foan.server.service.AdminService;
 
 @RestController
@@ -39,8 +40,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/user/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE) 
-	public User updateUser(@RequestBody User user) {
-		return adminService.updateUser(user); 
+	public UpdateUserResponse updateUser(@RequestBody User user) {
+		UpdateUserResponse response = new UpdateUserResponse();
+		response = adminService.updateUser(user);
+		return response; 
 	}
 	
 	@RequestMapping(value="/user", method = RequestMethod.DELETE) 

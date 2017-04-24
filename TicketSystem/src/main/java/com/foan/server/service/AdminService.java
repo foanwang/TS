@@ -6,6 +6,7 @@ import com.foan.server.entity.Permission;
 import com.foan.server.entity.Role;
 import com.foan.server.entity.TicketType;
 import com.foan.server.entity.User;
+import com.foan.server.response.UpdateUserResponse;
 
 public interface AdminService {
 	void addRole(Role role);
@@ -14,7 +15,7 @@ public interface AdminService {
 	void deleteRole(Role role);
 	void addUser(User user);
 	List<User> getUserList();
-	User updateUser(User user);
+	UpdateUserResponse updateUser(User user);
 	void deleteUser(User user);
 	void addPermission(Permission permission);
 	List<Permission> getPermissionList();

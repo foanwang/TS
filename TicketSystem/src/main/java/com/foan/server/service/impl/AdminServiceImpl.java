@@ -13,6 +13,7 @@ import com.foan.server.repository.PermissionRepository;
 import com.foan.server.repository.RoleRepository;
 import com.foan.server.repository.TicketTypeRepository;
 import com.foan.server.repository.UserRepository;
+import com.foan.server.response.UpdateUserResponse;
 import com.foan.server.service.AdminService;
 
 
@@ -65,8 +66,16 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public User updateUser(User user) {
-		return userRepository.save(user);
+	public UpdateUserResponse updateUser(User user) {
+		UpdateUserResponse response = new UpdateUserResponse();
+		User updateuser =  new User(user);
+		if(userRepository.exists(user.getId())){
+			response.setResult("0");
+			userRepository.save(user);
+		}else{
+			response.setResult("-1");
+		}
+		return response;
 	}
 
 	@Override
