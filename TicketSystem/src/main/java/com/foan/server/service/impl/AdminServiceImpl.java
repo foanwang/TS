@@ -24,7 +24,6 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
 	RoleRepository roleRepository;
-	
 
 	@Autowired
 	UserRepository userRepository;

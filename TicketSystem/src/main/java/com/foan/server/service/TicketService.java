@@ -1,13 +1,17 @@
 package com.foan.server.service;
 
-import java.util.List;
-
 import com.foan.server.entity.Ticket;
+import com.foan.server.response.CreateTicketReponse;
+import com.foan.server.response.DeleteTicketResponse;
+import com.foan.server.response.GetAllTicketListResponse;
+import com.foan.server.response.GetTickListByTypeResponse;
+import com.foan.server.response.UpdateTicketResponse;
 
 public interface TicketService {
-	Ticket addTicket(Ticket ticket);
-	Ticket updateTicket(Ticket ticket);
-	List<Ticket> getTicketListBytype(int type);
-	List<Ticket> getAllTicketList();
-	void deleteRole(Ticket ticket);
+	CreateTicketReponse addTicket(String uid, Ticket ticket);
+	UpdateTicketResponse updateTicket(String uid, Ticket ticket);
+	GetTickListByTypeResponse getTicketListBytype(String uid, int type);
+	GetAllTicketListResponse getAllTicketList(String uid);
+	DeleteTicketResponse deleteTicket(String uid,Ticket ticket);
+	int checkpermission(String uid, int ticketroleId);
 }

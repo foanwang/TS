@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.foan.server.entity.User;
+import com.foan.server.response.LoginResponse;
 import com.foan.server.service.LoginService;
 
 
@@ -27,10 +28,17 @@ public class LoginContorller {
 	LoginService loginservice;
 		
 	@RequestMapping(value="/{uid}", method = RequestMethod.GET) 
-	public User login(@PathVariable String uid, @RequestParam String password) {
+	public LoginResponse login(@PathVariable String uid, @RequestParam String password) {
 //		System.out.println("Start to login uid:"+uid+" password:"+password);
 		User user = loginservice.login(uid, password);
-		return user;
+		LoginResponse response = new LoginResponse();
+		if(user !=null){
+			response.setResult("0");
+			response.setUser(user);
+		}else{
+			response.setResult("-1");
+		}
+		return response;
 	}
 	
 }
