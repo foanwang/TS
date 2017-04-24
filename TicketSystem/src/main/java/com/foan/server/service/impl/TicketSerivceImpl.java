@@ -49,12 +49,13 @@ public class TicketSerivceImpl implements TicketService {
 	public UpdateTicketResponse updateTicket(String uid, Ticket ticket) {
 		UpdateTicketResponse response = new UpdateTicketResponse();
 		int check = checkpermission(uid, ticket.getType());
-		if(check!=1||check!=2){
-			response.setResult("-1");
-		}else{
+		if(check==1||check==2){//12可讀寫
 			ticketRepository.save(ticket);
 			response.setResult("0");
 			response.setTicket(ticket);
+		}else{
+
+			response.setResult("-1");
 		}
 		return response;
 	}

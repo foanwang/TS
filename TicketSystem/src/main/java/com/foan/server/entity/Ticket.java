@@ -14,6 +14,11 @@ import javax.persistence.Table;
 @Table(name="ticket")
 public class Ticket implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -26,7 +31,7 @@ public class Ticket implements Serializable{
 	private String title;
 	
 	@Column(name = "description")
-	private int description;
+	private String description;
 	
 	@Column(name = "summary")
 	private String summary;
@@ -43,16 +48,31 @@ public class Ticket implements Serializable{
 	@Column(name = "createtime")
 	private Date createtime; 
 	
-	@Column(name = "createUserId")
+	@Column(name = "createuserid")
 	private String createUserId; 
 	
-	@Column(name = "lastmodifyUserId")
+	@Column(name = "lastmodifyuserid")
 	private String lastmodifyUserId;
 	
 	@Column(name = "memo")
 	private String memo;
 	
 	public Ticket(){}
+	
+	public Ticket(Ticket ticket){
+		this.type = ticket.getType();
+		this.description = ticket.getDescription();
+		this.title =  ticket.getTitle();
+		this.summary = ticket.getSummary();
+		this.severity = ticket.getSeverity();
+		this.priority = ticket.getPriority();
+		this.status = ticket.getStatus();
+		this.createUserId = ticket.getCreateUserId();
+		this.lastmodifyUserId =ticket.getLastmodifyUserId();
+		this.memo = ticket.getMemo();
+		System.out.println(" new Date():"+ new Date());
+		this.createtime = new Date();
+	}
 
 	public int getId() {
 		return id;
@@ -78,11 +98,11 @@ public class Ticket implements Serializable{
 		this.title = title;
 	}
 
-	public int getDescription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(int description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
