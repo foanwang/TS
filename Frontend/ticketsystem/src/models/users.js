@@ -1,5 +1,18 @@
 import * as httpservice from './httpservice'
 
+
+const requireAuth = (nextState, replace) => {
+  /**
+    * if user is not logged in hence will redirect to Login screen
+    */
+  // if (sessionStage.getItem("uid") === null) {
+  //   replace({
+  //     pathname: '/login',
+  //     state: { nextPathname: nextState.location.pathname },
+  //   })
+  // }
+}
+
 // user/login
 function userlogin(userid, password) {
     let userData = {
@@ -13,8 +26,5 @@ function userlogin(userid, password) {
 
     })
 }
-function checkLogin(){
-  return this.userdat.username;
-}
 
-export {userlogin};
+export {userlogin, requireAuth};

@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 
+
 /**
   * Logout view with signOut action from Firebase
   */
 
 class Logout extends Component {
-  componentDidMount = () => {
-    /**
-      * handle signOut from firebase
-      */
-    firebase.auth().signOut()
-  }
+    constructor(props) {
+        super(props);
+        this.logout();
+    }
+
+    logout() {
+      sessionStorage.clear();
+    }
 
   /**
     * render
@@ -20,6 +23,7 @@ class Logout extends Component {
     return (
       <p>You are now logged out</p>
     )
+    this.context.router.replace('/')
   }
 }
 

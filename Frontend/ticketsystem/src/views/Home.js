@@ -10,16 +10,11 @@ class Home extends Component {
     * @property {string} username / email
     */
   state = {
-    //currentUser: firebase.auth().currentUser,
+    currentUser: sessionStorage.getItem("uid")
   }
   componentDidMount = () => {
-    /**
-      * update currentUser whenever Firebase AuthStateChanged
-      */
-    //(firebaseUser => {
-    //   this.setState({ currentUser: firebaseUser })
-    // })
-  }
+      this.setState({ currentUser: sessionStorage.getItem("uid") })
+    }
   /**
     * render
     * @return {ReactElement} Hello screen
@@ -27,12 +22,13 @@ class Home extends Component {
   render() {
     let user = 'World'
     if (this.state.currentUser) {
-      user = this.state.currentUser.email
+      user = this.state.currentUser;
     }
     const msg = (
       <h1> Hello {user}! </h1>
     )
     return msg
+    this.context.router.replace('/')
   }
 }
 

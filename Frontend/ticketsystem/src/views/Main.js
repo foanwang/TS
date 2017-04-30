@@ -13,25 +13,22 @@ class Main extends Component {
     * @property {boolean} loggedIn status
     */
   state = {
-    // loggedIn: (firebase.auth().currentUser !== null),
+     loggedIn: (sessionStorage.getItem("uid") !== null),
   }
 
   componentWillMount = () => {
     /**
       * update loggedIn state whenever Firebase AuthStateChanged
       */
-    // firebase.auth().onAuthStateChanged(firebaseUser => {
-    //   this.setState({
-    //     loggedIn: (firebaseUser !== null),
-    //   })
-    //
-    //   if (firebaseUser) {
-    //     console.log('Logged IN', firebaseUser)
-    //   } else {
-    //     console.log('Not logged in')
-    //   }
-    // })
-  }
+      this.setState({ loggedIn: (sessionStorage.getItem("uid") !== null)})
+
+      if (sessionStorage.getItem("uid")) {
+        console.log('Logged IN', sessionStorage.getItem("uid"))
+      } else {
+        console.log('Not logged in')
+      }
+
+    }
 
   /**
     * render
@@ -40,20 +37,20 @@ class Main extends Component {
   render() {
     let loginOrOut
     let register
-    // if (this.state.loggedIn) {
-    //   loginOrOut = (
-    //     <li>
-    //       <Link to="/logout" className="navbar-brand">Logout</Link>
-    //     </li>
-    //   )
-    //   register = null
-    // } else {
+    if (this.state.loggedIn) {
+      loginOrOut = (
+        <li>
+          <Link to="/logout" className="navbar-brand">Logout</Link>
+        </li>
+      )
+      register = null
+    } else {
       loginOrOut = (
         <li>
           <Link to="/login" className="navbar-brand">Login</Link>
         </li>
       )
-    //}
+    }
     return (
       <span>
         <nav className="navbar navbar-default navbar-static-top">

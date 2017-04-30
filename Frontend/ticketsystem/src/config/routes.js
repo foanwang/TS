@@ -11,7 +11,7 @@ import Login from '../views/login-register/Login'
 import Logout from '../views/login-register/Logout'
 import Register from '../views/login-register/Register'
 import Home from '../views/Home'
-
+import * as userservice from '../models/users'
 /**
   * routes configuration for views
   */

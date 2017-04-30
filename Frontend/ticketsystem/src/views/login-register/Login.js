@@ -14,7 +14,7 @@ class Login extends Component {
   constructor(props) {
         super(props);
         this.state = {
-              userid: '',
+              uid: '',
               roleid:'',
               error: false,
         };
@@ -36,8 +36,11 @@ class Login extends Component {
       */
       userservice.userlogin(userid, password)
       .then(result=>{
-        this.state.userid = result.user.userid;
-        this.state.roleid = result.user.roleid;
+        console.log(result);
+        this.state.userid = result.user.uid;
+        console.log("userid:"+this.state.userid);
+        sessionStorage.setItem("uid",result.user.uid);
+        sessionStorage.setItem("roleid",result.user.roleid);
         this.context.router.replace('/')
       }).catch(function(error) {
           this.state.error = true ;
