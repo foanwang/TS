@@ -20,6 +20,7 @@ class Home extends Component {
     * @return {ReactElement} Hello screen
     */
   render() {
+    
     let user = 'World'
     if (this.state.currentUser) {
       user = this.state.currentUser;
@@ -28,7 +29,6 @@ class Home extends Component {
       <h1> Hello {user}! </h1>
     )
     return msg
-    this.context.router.replace('/')
   }
 }
 

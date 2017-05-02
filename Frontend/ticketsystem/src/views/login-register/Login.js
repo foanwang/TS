@@ -6,9 +6,6 @@ import Form from './components/Form'
 import * as userservice from '../../models/users'
 const { object } = PropTypes
 
-/**
-  * Login view with email and password Firebase signIn
-  */
 
 class Login extends Component {
   constructor(props) {
@@ -36,17 +33,21 @@ class Login extends Component {
       */
       userservice.userlogin(userid, password)
       .then(result=>{
-        console.log(result);
         this.state.userid = result.user.uid;
-        console.log("userid:"+this.state.userid);
         sessionStorage.setItem("uid",result.user.uid);
         sessionStorage.setItem("roleid",result.user.roleid);
-        this.context.router.replace('/')
+        this.context.router.push('/');
       }).catch(function(error) {
-          this.state.error = true ;
+          console.log(error);
         });
 
   }
+
+
+
+  componentDidMount = () => {
+      //this.context.router.push('/');
+    }
   /**
     * render
     * @return {ReactElement} Login form

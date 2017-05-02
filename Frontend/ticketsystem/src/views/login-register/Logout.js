@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import * as userservice from '../../models/users'
 
 /**
   * Logout view with signOut action from Firebase
@@ -12,8 +12,17 @@ class Logout extends Component {
     }
 
     logout() {
-      sessionStorage.clear();
-    }
+          userservice.userlogout(this.onSubmitResponse.bind(this));
+      }
+
+      onSubmitResponse(response) {
+          console.log("onSubmitResponse response:"+response);
+          if (response === true) {
+            //this.context.router.push('/');
+          } else {
+              // Something went wrong, let the user know
+          }
+      }
 
   /**
     * render
@@ -23,7 +32,6 @@ class Logout extends Component {
     return (
       <p>You are now logged out</p>
     )
-    this.context.router.replace('/')
   }
 }
 

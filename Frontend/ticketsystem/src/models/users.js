@@ -2,15 +2,7 @@ import * as httpservice from './httpservice'
 
 
 const requireAuth = (nextState, replace) => {
-  /**
-    * if user is not logged in hence will redirect to Login screen
-    */
-  // if (sessionStage.getItem("uid") === null) {
-  //   replace({
-  //     pathname: '/login',
-  //     state: { nextPathname: nextState.location.pathname },
-  //   })
-  // }
+
 }
 
 // user/login
@@ -27,4 +19,12 @@ function userlogin(userid, password) {
     })
 }
 
-export {userlogin, requireAuth};
+// user/logout
+function userlogout(callback) {
+        console.log("users logout");
+        sessionStorage.clear();
+        //observer.onSessionUpdate();
+        callback(true);
+    }
+
+export {userlogin, requireAuth, userlogout};

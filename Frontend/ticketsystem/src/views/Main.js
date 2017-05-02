@@ -37,9 +37,10 @@ class Main extends Component {
   render() {
     let loginOrOut
     let register
-    if (this.state.loggedIn) {
+    if (sessionStorage.getItem("uid")) {
       loginOrOut = (
         <li>
+          <Link to="/ticket" className="navbar-brand">Ticket</Link>
           <Link to="/logout" className="navbar-brand">Logout</Link>
         </li>
       )

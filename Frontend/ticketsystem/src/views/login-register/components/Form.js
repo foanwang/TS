@@ -22,9 +22,9 @@ class Form extends Component {
     */
   handleSubmit = (e) => {
     e.preventDefault()
-    const email = this.refs.email.value
+    const uid = this.refs.uid.value
     const pw = this.refs.pw.value
-    this.props.onSubmit(email, pw)
+    this.props.onSubmit(uid, pw)
   }
   /**
     * render
@@ -35,7 +35,7 @@ class Form extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label> Account </label>
-          <input className="form-control" ref="email" placeholder="Account"/>
+          <input className="form-control" ref="uid" placeholder="Account"/>
         </div>
         <div className="form-group">
           <label>Password</label>
